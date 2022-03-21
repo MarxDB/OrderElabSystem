@@ -95,15 +95,19 @@ public class Sistema {
                 }
                 case 3:
                 {    
+                    int ctrl = 0;
                     System.out.print("Inserire nome account: ");
                     String nome = scan.nextLine();
                     for (Account a : listaAccount) {                            
-                        if(a.getName().equals(nome))
+                        if(a.getName().equals(nome)){
                             System.out.println("Il credito residuo per "+a.getName()
                                         +" è di "+a.getCredit()+" €");
-                        else
-                            System.out.println("Account non trovato!");
+                            ctrl++;
                         }
+                    }
+                    if(ctrl == 0)
+                        System.out.println("Account non trovato!");
+                                
                     break;
                 }                    
                 case 4:
