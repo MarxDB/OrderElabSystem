@@ -8,7 +8,7 @@ package sistemaelaborazionedegliordini;
  *
  * @author Mars_DB
  */
-public class Item {
+public class Item implements Iitem{
     private String name;
     private double price;
     

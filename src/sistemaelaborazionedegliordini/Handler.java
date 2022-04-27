@@ -6,29 +6,27 @@ package sistemaelaborazionedegliordini;
 
 
 import java.util.LinkedList;
-import java.util.Scanner;
+
 
 /**
  *
  * @author Mars_DB
  */
 public class Handler {
-    private LinkedList products;
-    private LinkedList customers;
-    private LinkedList executedOrders;
-    private LinkedList ordersToExecute;
-    private Scanner scan;
+    private LinkedList<Item> products;
+    private LinkedList<Account> customers;
+    private LinkedList<Order> executedOrders;
+    private LinkedList<Order> ordersToExecute;
     private double profits;
     private double outgoings;
     
     public Handler(){
-        this.customers = new LinkedList<Account>();
-        this.products = new LinkedList<Item>();
-        this.executedOrders = new LinkedList<Order>();
-        this.ordersToExecute = new LinkedList<Order>();
-        this.scan = new Scanner(System.in);
-        this.profits = 0;
-        this.outgoings = 0;
+        this.customers          = new LinkedList();
+        this.products           = new LinkedList();
+        this.executedOrders     = new LinkedList();
+        this.ordersToExecute    = new LinkedList();
+        this.profits            = 0;
+        this.outgoings          = 0;
     }
     
     public boolean addCustomer(Account a){
@@ -55,6 +53,16 @@ public class Handler {
         return b;
     }
     
+    @Override
+    public String toString(){
+
+        return "Profitti: "+this.profits
+                +"\nSpese: "+this.outgoings
+                +"\nLista Utenti: \n"+this.customers.toString()
+                +"\nLista ordini evasi: \n"+this.executedOrders.toString()
+                +"\nLista ordini da evadere: \n"+this.ordersToExecute.toString();
+    }
+      
     private boolean exeOrder(Order o){
         boolean b = o.exeOrder();
         if(b){
@@ -71,8 +79,5 @@ public class Handler {
             System.out.println("L'operazione è andata a buon fine!");
         else 
             System.out.println("Ops! C'è stato un errore!");
-    }
-    
-    
-    
+    }   
 }

@@ -4,7 +4,7 @@
  */
 package sistemaelaborazionedegliordini;
 
-import java.util.HashMap;
+import java.util.LinkedList;
 
 /**
  *
@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class Order {
     
     private int num;                                                            //codice ordine
-    private HashMap<String, Item> items;                                        //mappa nome-oggetto
+    private LinkedList<Item> items;                                        //mappa nome-oggetto
     private double totCost;                                                     //costo complessivo
     private Account account;                                                    //account di riferimento
     private boolean exed;                                                       //completato?
@@ -21,13 +21,13 @@ public class Order {
     
     public Order(int n, Account account){                                       //builder
         this.num = n;
-        this.items = new HashMap<String, Item>();
+        this.items = new LinkedList();
         this.account = account;
         this.exed = false;
     }
     
     public void addItem(Item item){                                             //aggiunta elemento          
-        this.items.put(item.getName(), item);
+        this.items.add(item);
     }
     
     public void removeItem(Item item){                                          //rimozione elemento  
@@ -36,9 +36,10 @@ public class Order {
     
     public double getCost(){                                                   //costo complessivo ordine
         this.totCost = 0;
-        items.values().forEach(i -> {
+        items.forEach(i -> {
             this.totCost += i.getPrice();
         });
+        
         return this.totCost;
     }
     
