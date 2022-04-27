@@ -5,7 +5,6 @@
 package sistemaelaborazionedegliordini;
 
 import java.util.HashMap;
-import java.util.Iterator;
 
 /**
  *
@@ -44,7 +43,7 @@ public class Order {
     }
     
     public boolean exeOrder(){                                                  //esecuzione pagamento       
-        Payment p = new Payment(this.totCost, this.account.getName());        
+        Payment p = new Payment(this.totCost, this.account);        
         this.exed = this.account.addPayment(p);        
         return this.exed;
         

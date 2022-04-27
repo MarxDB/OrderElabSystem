@@ -11,12 +11,12 @@ package sistemaelaborazionedegliordini;
 public class Payment {
     
     private final double cost;                                                  //costo
-    private final String account;                                               //identificativo pagamento
+    private final Account account;                                               //identificativo pagamento
     private boolean payd;
     
-    public Payment(double cost, String s){                                      //builder                                    
+    public Payment(double cost, Account a){                                      //builder                                    
         this.cost = cost;
-        this.account = s;
+        this.account = a;
         this.payd = false;
     }
 
@@ -30,8 +30,17 @@ public class Payment {
     }
     
     public String toString(){
-        return "Pagamento a carico di "+this.account+"\ndi "+
+        return "Pagamento a carico di "+this.account.getName()+"\ndi "+
                 +this.cost+"€"+"\npagato: "+this.payd;
     }
+    
+    public boolean getPayd(){
+        return this.payd;
+    }
+    
+    public void setPayd(){
+        this.payd = true;
+    }
+    
     
 }

@@ -46,19 +46,6 @@ public class Sistema {
         listaOggetti.add(new Item("Vaso",       7.5));
         listaOggetti.add(new Item("Bicicletta", 212.5));
         
-    /*    
-        System.out.print("Inserire nome account: ");
-        String nome = scan.nextLine();
-        System.out.print("Inserire indirizzo account: ");
-        String indirizzo = scan.nextLine();
-        System.out.print("Inserire credito: ");
-        double credito = scan1.nextDouble();
-        listaAccount.add(new Account(nome, credito, indirizzo));
-        System.out.println("Account creato!");
-        for(Account a : listaAccount) {
-            a.toPrint();
-        } */
-        
         do{
             i++;
             System.out.println("\nQuale operazione vuoi eseguire?");

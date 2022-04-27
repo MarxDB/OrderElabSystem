@@ -25,15 +25,13 @@ public class Account {
     }
     
     public boolean addPayment(Payment payment){                                 //inserimento pagamento
-        boolean check;
         if(payment.getCost()<= this.credit){
             this.payments.add(payment);
             this.credit-=payment.getCost();
-            check = true;
+            payment.setPayd();
+            System.out.println("Il pagamento è andato a buon fine!");
         }
-        else
-            check = false;
-        return check;
+        return payment.getPayd();
     }
     
     public String getName(){
