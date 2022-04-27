@@ -33,22 +33,46 @@ public class Handler {
     
     public boolean addCustomer(Account a){
         boolean b = this.customers.add(a);
-        // metodo di notifica?
+        toNotify(b);
         return b;
     }
     
     public boolean deleteCustomer(Account a){
         boolean b = this.customers.remove(a);
+        toNotify(b);
         return b;
     }
     
     public boolean addOrders(Order o){
         boolean b = this.ordersToExecute.add(o);
+        toNotify(b);
         return exeOrder(o);
     }
     
+    public boolean addItem(Item i){
+        boolean b = this.products.add(i);
+        toNotify(b);
+        return b;
+    }
+    
     private boolean exeOrder(Order o){
-        boolean b = false;
-        return b;};
+        boolean b = o.exeOrder();
+        if(b){
+            this.ordersToExecute.remove(o);
+            this.executedOrders.add(o);
+            this.profits += (o.getCost() - (o.getCost()*40)/100);
+            this.outgoings += ((o.getCost()*40)/100);
+        }            
+        return b;
+    }
+    
+    private void toNotify(boolean b){
+        if(b)
+            System.out.println("L'operazione è andata a buon fine!");
+        else 
+            System.out.println("Ops! C'è stato un errore!");
+    }
+    
+    
     
 }

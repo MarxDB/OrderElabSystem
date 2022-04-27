@@ -34,7 +34,7 @@ public class Order {
         items.remove(item);         
     }   
     
-    private double getCost(){                                                   //costo complessivo ordine
+    public double getCost(){                                                   //costo complessivo ordine
         this.totCost = 0;
         items.values().forEach(i -> {
             this.totCost += i.getPrice();
