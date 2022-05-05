@@ -10,13 +10,13 @@ package sistemaelaborazionedegliordini;
  */
 public class Payment {
     
-    private final double cost;                                                  //costo
-    private final Account account;                                               //identificativo pagamento
+    private final double cost;                                                  // costo
+    private final Order order;                                              // identificativo pagamento
     private boolean payd;
     
-    public Payment(double cost, Account a){                                      //builder                                    
+    public Payment(double cost, Order o){                                     // builder                                    
         this.cost = cost;
-        this.account = a;
+        this.order = o;
         this.payd = false;
     }
 
@@ -30,7 +30,7 @@ public class Payment {
     }
     
     public String toString(){
-        return "Pagamento a carico di "+this.account.getName()+"\ndi "+
+        return "Pagamento a carico di "+this.order+"\ndi "+
                 +this.cost+"€"+"\npagato: "+this.payd;
     }
     

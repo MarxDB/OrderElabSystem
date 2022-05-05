@@ -13,16 +13,19 @@ import java.util.LinkedList;
  * @author Mars_DB
  */
 public class Handler {
-    private LinkedList<Item> products;
+    private LinkedList<?>       staff;
+    private LinkedList<Item>    products;
     private LinkedList<Account> customers;
-    private LinkedList<Order> executedOrders;
-    private LinkedList<Order> ordersToExecute;
-    private double profits;
-    private double outgoings;
+    private LinkedList<Order>   executedOrders;
+    private LinkedList<Order>   ordersToExecute;
+    private double              outgoings;
+    private double              profits;
+
     
     public Handler(){
-        this.customers          = new LinkedList();
+        this.staff              = new LinkedList();
         this.products           = new LinkedList();
+        this.customers          = new LinkedList();
         this.executedOrders     = new LinkedList();
         this.ordersToExecute    = new LinkedList();
         this.profits            = 0;

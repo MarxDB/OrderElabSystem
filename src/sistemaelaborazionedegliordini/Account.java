@@ -54,8 +54,6 @@ public class Account {
     @Override
     public String toString(){
         return "Nome account: "+this.name+"\nCredito: "
-                +this.credit+"€"+"\nIndirizzo: "+this.address;
-                
-                
+                +this.credit+"€"+"\nIndirizzo: "+this.address;                                
     }
 }

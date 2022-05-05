@@ -44,10 +44,14 @@ public class Order {
     }
     
     public boolean exeOrder(){                                                  //esecuzione pagamento       
-        Payment p = new Payment(this.totCost, this.account);        
+        Payment p = new Payment(this.totCost, this);        
         this.exed = this.account.addPayment(p);        
         return this.exed;
         
+    }
+    
+    public Account getAccount(){
+        return this.account;
     }
     
     public void toPrint(){
