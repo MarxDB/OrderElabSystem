@@ -9,12 +9,14 @@ package sistemaelaborazionedegliordini;
  * @author Mars_DB
  */
 public class Item{
-    private String name;
-    private double price;
+    private final String name;
+    private final double price;
+    private int quantity;
     
-    public Item(String name, double price){
-        this.name = name;
-        this.price = price;
+    public Item(String name, double price, int q){
+        this.name       = name;
+        this.price      = price;
+        this.quantity   = q;
     }
     
     public String getName(){
@@ -25,7 +27,12 @@ public class Item{
         return this.price;
     }
     
-    public void toPrint(){
-        System.out.println("Oggetto: "+this.name+"\nPrezzo: "+this.price);
+    public int getQuantity(){
+        return this.quantity;
+    }
+    
+    @Override
+    public String toString(){
+        return "Oggetto: "+this.name+"\nPrezzo: "+this.price;
     }
 }

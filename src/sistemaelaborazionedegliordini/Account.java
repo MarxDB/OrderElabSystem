@@ -14,15 +14,14 @@ import java.util.LinkedList;
 public class Account {
     private String name;                                                        
     private double credit;                                                      
-    private String address;
     private LinkedList payments;
     
-    public Account(String name, double credit, String ad){                      //builder
+    public Account(String name, double credit){                      //builder
         this.name = name;
         this.credit = credit;
         this.payments = new LinkedList<Payment>();
-        this.address = ad;
     }
+    public Account(){};
     
     public boolean addPayment(Payment payment){                                 //inserimento pagamento
         if(payment.getCost()<= this.credit){
@@ -31,15 +30,11 @@ public class Account {
             payment.setPayd();
             System.out.println("Il pagamento è andato a buon fine!");
         }
-        return payment.getPayd();
+        return payment.getStatus();
     }
     
     public String getName(){
         return this.name;
-    }
-    
-    public String getAddress(){
-        return this.address;
     }
     
     public double getCredit(){
@@ -54,6 +49,6 @@ public class Account {
     @Override
     public String toString(){
         return "Nome account: "+this.name+"\nCredito: "
-                +this.credit+"€"+"\nIndirizzo: "+this.address;                                
+                +this.credit+"€"+"\nIndirizzo: ";                                
     }
 }

@@ -15,7 +15,7 @@ import java.util.LinkedList;
 public class Handler {
     private LinkedList<?>       staff;
     private LinkedList<Item>    products;
-    private LinkedList<Account> customers;
+    private AccountArchive      customers;
     private LinkedList<Order>   executedOrders;
     private LinkedList<Order>   ordersToExecute;
     private double              outgoings;
@@ -25,7 +25,7 @@ public class Handler {
     public Handler(){
         this.staff              = new LinkedList();
         this.products           = new LinkedList();
-        this.customers          = new LinkedList();
+        this.customers          = new AccountArchive();
         this.executedOrders     = new LinkedList();
         this.ordersToExecute    = new LinkedList();
         this.profits            = 0;
@@ -33,13 +33,13 @@ public class Handler {
     }
     
     public boolean addCustomer(Account a){
-        boolean b = this.customers.add(a);
+        boolean b = this.customers.addAccount(a);
         toNotify(b);
         return b;
     }
     
     public boolean deleteCustomer(Account a){
-        boolean b = this.customers.remove(a);
+        boolean b = this.customers.removeAccount(a);
         toNotify(b);
         return b;
     }

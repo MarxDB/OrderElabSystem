@@ -10,31 +10,28 @@ package sistemaelaborazionedegliordini;
  */
 public class Payment {
     
-    private final double cost;                                                  // costo
+    private final double cost;                                              // costo
     private final Order order;                                              // identificativo pagamento
     private boolean payd;
     
-    public Payment(double cost, Order o){                                     // builder                                    
+    public Payment(double cost, Order o, Account account){                                   // builder                                    
         this.cost = cost;
         this.order = o;
-        this.payd = false;
+        this.payd = account.addPayment(this);
     }
 
     public double getCost() {
        return this.cost;
     }
     
-    public boolean toPayment(Account account){
-        this.payd = account.addPayment(this);
-        return this.payd;
-    }
     
+    @Override
     public String toString(){
         return "Pagamento a carico di "+this.order+"\ndi "+
                 +this.cost+"€"+"\npagato: "+this.payd;
     }
     
-    public boolean getPayd(){
+    public boolean getStatus(){
         return this.payd;
     }
     

@@ -44,7 +44,7 @@ public class Order {
     }
     
     public boolean exeOrder(){                                                  //esecuzione pagamento       
-        Payment p = new Payment(this.totCost, this);        
+        Payment p = new Payment(this.totCost, this, this.account);        
         this.exed = this.account.addPayment(p);        
         return this.exed;
         
@@ -54,7 +54,8 @@ public class Order {
         return this.account;
     }
     
-    public void toPrint(){
-        System.out.println("Ordine n°"+this.num+"\n"+items.toString());
+    @Override
+    public String toString(){
+        return "Ordine n°"+this.num+"\n"+items.toString();
     }
 }
